@@ -1,11 +1,8 @@
 <?php
 /**
-* Class Request - Will aid in creating http/https requests.
-*	> can request using POST & GET types using proper sessions and cookie storage.
-	> using the parse method collecting information from request data is simple
-	> can be included in a project or used as an api using a GET/POST request.
-	The GET/POST parameters are the name of the public class variables.
-	
+* Author: Tyler Holubeshen 
+* Description: The webrequest class will aid in making HTTP/HTTPS requests
+* Supports multiple cookies and sessions. 
 */
 class request {
 	
@@ -20,9 +17,6 @@ class request {
 	public $cacheDir;
 	public $ssl; //is a boolean that represents if https is to be used
 	public $agent; //is a string that represents the alias in which the requests are being made from
-	public $parseStr;
-	public $parseItems;//is the parsing info
-	public $parsed; //is an array that will hold the parsed information
 	public $directory; //is a string that represents the directory in which the script is located in
 	public $headerVar;//is an array of strings that can be used for the header of the request
 	public $referer;//is a string that represents the referer for the request 
@@ -40,7 +34,6 @@ class request {
 		$this->directory = getcwd();
 		$this->cookieDirectory = $this->directory.'\\cookies';
 		$this->cache = $this->directory.'\\cache';
-		$this->parseStr = null;
 		
 		
 		//creates the cookies directory if it is not already found
@@ -64,7 +57,7 @@ class request {
 	
 	}
 	/**
-	*Method extend - will extend the class object's variables using json, object or an associative array
+	* extend - will extend the class object's variables using json, an object or an associative array
 	*/
 	public function extend($var){
 		
@@ -84,7 +77,7 @@ class request {
 		}
 	}
 	/**
-	*Method Post - will make a page request using the post type.
+	* post - will make a page request using the post type.
 	*/
 	public function post(){
 		
@@ -118,7 +111,7 @@ class request {
 		curl_close($options);
 	}
 	/**
-	*Method Get - will make a page request using the get type.
+	* get - will make a page request using the get type.
 	*/
 	public function get(){
 		
@@ -155,29 +148,7 @@ class request {
 		curl_close($options);
 	}
 	/**
-	* Method Parse - will return a string fragment between two specified strings.
-	*	$start - string fragment that begins the cut
-	*	$end - string fragment that ends the cut
-	*	$var - string that represents the results access name
-	*	$single - Boolean that represents single parse or multi parse
-	*/
-	public function parse($start, $end, $var ,$single = TRUE){
-		
-		if($this->parseStr != null)
-				$parse = $this->parseStr;
-		else
-			$parse = $this->body;
-
-		foreach(explode($end, $parse) as $key){
-			if($temp = strstr($key, $start))
-				$parsed[] = str_replace($start,'',$temp);
-		}
-		if(isset($parsed))
-			$this->parsed[$var] = ($single) ? $parsed[0] : $parsed;	
-		
-	}
-	/**
-	* Method seperate_data - will seperate the header and the body from the page data
+	* seperate_data - will seperate the header and the body from the page data
 	*	$page - the page data from the curl request
 	*	$header_size - the size of the header
 	*/
@@ -188,7 +159,7 @@ class request {
 		
 	}
 	/**
-	*Method get_cookies - will return an array of all the cookies being used in the request
+	* get_cookies - will return an array of all the cookies being used in the request
 	*/
 	public function get_cookies(){
 	
