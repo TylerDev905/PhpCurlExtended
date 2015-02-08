@@ -10,14 +10,13 @@ $request->url = "http://www.example.com";
 $request->get();
 
 
-
 Example Post request use:
 
 $request = new request();
 $request->url = "http://www.example.com";
 $request->param = array(
     "Login" => "username",
-    "Password" => "password12"
+    "Password" => "password12";
 );
 $request->post();
 
@@ -31,6 +30,6 @@ $request->cookie = true;
 $request->cookieName = "myfirstcookie"
 $request->param = array(
     "Login" => "username",
-    "Password" => "password12"
+    "Password" => "password12";
 );
 $request->post();
