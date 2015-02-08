@@ -5,14 +5,14 @@ The webrequest class is for sending HTTP/HTTPS requests. It supports multiple se
 
 
 ```php
-Example GET request use:
+//Example GET request use:
 
 $request = new request();
 $request->url = "http://www.example.com";
 $request->get();
 
 
-Example Post request use:
+//Example Post request use:
 
 $request = new request();
 $request->url = "http://www.example.com";
@@ -23,8 +23,7 @@ $request->param = array(
 $request->post();
 
 
-
-Example Post With cookies use:
+//Example Post With cookies use:
 
 $request = new request();
 $request->url = "http://www.example.com";
