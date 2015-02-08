@@ -4,7 +4,7 @@ HTTP/HTTPS Webrequests
 The webrequest class is for sending HTTP/HTTPS requests. It supports multiple sessions and cookies. 
 
 
-```
+```php
 Example GET request use:
 
 $request = new request();
