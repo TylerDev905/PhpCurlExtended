@@ -1,7 +1,6 @@
 <?php
 /**
 * Description: The webrequest class will aid in making HTTP/HTTPS requests
-* Supports multiple cookies and sessions. 
 */
 class request {
 	
