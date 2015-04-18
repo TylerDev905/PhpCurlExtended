@@ -12,8 +12,6 @@ class request {
 	public $cookieName; //is a string that represents the cookies name
 	public $cookieDirectory; // is a string that represents the directory in which the cookies will be saved in
 	public $cookies; // is the cookies that were sent in the request
-	public $cache;
-	public $cacheDir;
 	public $ssl; //is a boolean that represents if https is to be used
 	public $agent; //is a string that represents the alias in which the requests are being made from
 	public $directory; //is a string that represents the directory in which the script is located in
